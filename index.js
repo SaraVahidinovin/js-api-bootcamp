@@ -62,12 +62,16 @@ async function fetchAndRenderAttendees() {
         const responseAttendees = await fetch('https://majazocom.github.io/Data/attendees.json');
         const attendees = await responseAttendees.json();
 
-        attendees.filter(attendee => attendee.attending = true).forEach (attendee => {
-            document.body.innerHTML += `Name: ${attendee.name} `; 
+        attendees.filter(attendee => attendee.attending === true).forEach (attendee => {
+            document.body.innerHTML += `Name: ${attendee.name}<br> `; 
         });
 
-    } catch {
-        console.log(error);
+        attendees.filter(attendee => attendee.attending === true && attendee.allergies.length > 0).forEach (attendee => {
+            document.body.innerHTML += `Attendee with some allergy: Name: ${attendee.name}<br> `; 
+        });
+
+    } catch(error) {
+        console.log('Fetch error:', error);
     }
 
 }
