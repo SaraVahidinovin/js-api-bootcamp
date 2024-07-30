@@ -19,18 +19,40 @@ async function fetchAndRenderPokemons() {
 //fetchAndRenderPokemons();
 
 async function fetchAndRenderDogs() {
-    const responseDog = await fetch('https://majazocom.github.io/Data/dogs.json');
-    const dogs = await responseDog.json();
-    console.log(dogs);
+    try {
+        const responseDog = await fetch('https://majazocom.github.io/Data/dogs.json');
+        const dogs = await responseDog.json();
+        console.log(dogs);
+    
+        dogs.forEach(dog => { 
+            console.log (dog)
+        });
+    
+        dogs.forEach(dog => {
+            document.body.innerHTML += `Name: ${dog.name} - Sex: ${dog.sex} -Breed: ${dog.breed} -Owner: ${dog.owner.name} <br>`;
+        });
+        
+    } catch {
+        console.log(error);
 
-    dogs.forEach(dog => { 
-        console.log (dog)
-    });
-
-    dogs.forEach(dog => {
-        document.body.innerHTML += `Name: ${dog.name} - Sex: ${dog.sex} -Breed: ${dog.breed} -Owner: ${dog.owner.name} <br>`;
-    });
-
+    }
 }
 
-fetchAndRenderDogs();
+//fetchAndRenderDogs();
+
+async function fetchAndRenderBooks() {
+    try {
+        const responseBook = await fetch('https://majazocom.github.io/Data/books.json');
+        const books = await responseBook.json();
+
+        books.filter(book => book.pages < 500).forEach (book => {
+            document.body.innerHTML += `Title: ${book.title} - Author: ${book.author} -Pages: ${book.pages}<br>`;
+
+        })
+   
+    } catch {
+        console.log(error);
+    }
+}
+
+fetchAndRenderBooks();
