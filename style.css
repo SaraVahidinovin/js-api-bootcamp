@@ -1,0 +1,69 @@
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 1.5rem;
+}
+
+.tabs {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.tabs button {
+    padding: 1rem 2rem;
+    cursor: pointer;
+    border: 1px solid #dad7d7;
+    border-radius: 5px;
+    background-color: #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabs button.active {
+    background-color: #fff;
+}
+
+.library {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    width: 15vw;
+}
+
+.book-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+} 
+
+.book-card h2 {
+    margin: 0 0 0.8rem;
+    font-size: 1.2rem;
+}
+
+.book-card p {
+    margin: 0.3rem 0;
+}
+
+
+.book-card button {
+    margin-top: 1rem;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    align-self: flex-end;
+}
