@@ -55,4 +55,21 @@ async function fetchAndRenderBooks() {
     }
 }
 
-fetchAndRenderBooks();
+//fetchAndRenderBooks();
+
+async function fetchAndRenderAttendees() {
+    try {
+        const responseAttendees = await fetch('https://majazocom.github.io/Data/attendees.json');
+        const attendees = await responseAttendees.json();
+
+        attendees.filter(attendee => attendee.attending = true).forEach (attendee => {
+            document.body.innerHTML += `Name: ${attendee.name} `; 
+        });
+
+    } catch {
+        console.log(error);
+    }
+
+}
+
+fetchAndRenderAttendees();
