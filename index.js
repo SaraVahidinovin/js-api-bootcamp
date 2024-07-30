@@ -10,11 +10,27 @@ async function fetchAndRenderPokemons() {
             document.body.innerHTML += `${pokemon.name}<br>`;
         }); // Render the name of each Pokemon in the DOM
 
-
     } catch {
         console.log(error);
 
     }
 }
 
-fetchAndRenderPokemons();
+//fetchAndRenderPokemons();
+
+async function fetchAndRenderDogs() {
+    const responseDog = await fetch('https://majazocom.github.io/Data/dogs.json');
+    const dogs = await responseDog.json();
+    console.log(dogs);
+
+    dogs.forEach(dog => { 
+        console.log (dog)
+    });
+
+    dogs.forEach(dog => {
+        document.body.innerHTML += `Name: ${dog.name} - Sex: ${dog.sex} -Breed: ${dog.breed} -Owner: ${dog.owner.name} <br>`;
+    });
+
+}
+
+fetchAndRenderDogs();
